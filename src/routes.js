@@ -37,6 +37,7 @@ const CancelableFetchRequest = React.lazy(() =>
   import("pages/CancelableFetchRequest")
 );
 const UserListTable = React.lazy(() => import("pages/UserListTable"));
+const EmployeeDataTable = React.lazy(() => import("everest/employee-data-table"));
 
 const routes = [
   {
@@ -298,6 +299,13 @@ const routes = [
         path: "/react-basics/show-hide-elements",
       },
     ],
+  },
+  {
+    enabled: true,
+    path: "/everest",
+    component: EmployeeDataTable,
+    navbar: "Everest",
+    child: null
   },
 ];
 
