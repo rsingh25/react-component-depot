@@ -7,56 +7,14 @@ const Home = () => {
         <>
             <div className="row text-center">
                 <div className="col">
-                    <h3>Welcome to react component depot</h3>
+                    <h3>Welcome to Everest Aluminium Pvt Ltd</h3>
                     <p>
-                        A collection of various components with the video
-                        tutorials on building them
+                    Everest Aluminium Pvt. Ltd. offers Circles, also called as Flat Circular Sheets of various dimensions and thickness catering to specific industrial needs. Widely used in the manufacturing of Pressure Cookers, Non-Stick Cookware, Coated Cookware, Kadhai, Tawa, Cans, etc., we have earned the trust of many leading brands.
                     </p>
                     <p>
-                        Please visit the youtube channel for more videos on
-                        react and some components
-                    </p>
-                    <p className="d-inline">
-                        <a
-                            href="https://www.youtube.com/channel/UCdItDI6oTgPW7l9WOJI7ItA/videos"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src={YoutubeLogo}
-                                style={{ width: "180px" }}
-                                className="img-fluid"
-                                alt="Youtube Logo"
-                            />
-                        </a>
+                    Our process of Circle Manufacturing involves DC Casting, Ingot Homogenizing, Impact Scalping, Hot Rolling, Cold Rolling, Circle Punching and Heat Treatment process to get the desired Tempers. Advanced technologies of Inline Trough Degassing and Infiltration have been adopted to minimize Hydrogen content and other inclusions.
                     </p>
                 </div>
-            </div>
-            <div className="row py-5">
-                {AppConfig.youtubeVideos.map(video => {
-                    return (
-                        <div className="col-md-4 p-3 card-hover" key={video.id}>
-                            <div class="card">
-                                <a
-                                    href={`https://www.youtube.com/watch?v=${video.id}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        class="card-img-top"
-                                        src={`https://img.youtube.com/vi/${video.id}/sddefault.jpg`}
-                                        alt="Card cap"
-                                    />
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {video.title}
-                                        </h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    );
-                })}
             </div>
         </>
     );

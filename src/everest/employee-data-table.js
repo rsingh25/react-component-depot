@@ -69,10 +69,6 @@ const EmployeeDataTable = () => {
 
     return (
         <>
-            <Header title="Building a data table in react" />
-
-            {/* <ExternalInfo page="datatable" /> */}
-
             <div className="row w-100">
                 <div className="col mb-3 col-12 text-center">
                     <div className="row">
@@ -103,7 +99,7 @@ const EmployeeDataTable = () => {
                         />
                         <tbody>
                             {commentsData.map(comment => (
-                                <tr>
+                                <tr key={comment.id}>
                                     <th scope="row" key={comment.id}>
                                         {comment.id}
                                     </th>
