@@ -9,28 +9,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "routes";
 import PageNotFound from "pages/PageNotFound";
 import Home from "pages/Home";
+import AuthorizedRoutes from "everest/autorized-roules";
 
 function App() {
     return (
         <Router>
             <Layout>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <Switch>
-                        {routes.map((route) => (
-                            <Route
-                                path={route.path}
-                                component={route.component}
-                                key={route.path}
-                            />
-                        ))}
-
-                        <Route path="/" exact>
-                            <Home />
-                        </Route>
-                        <Route>
-                            <PageNotFound />
-                        </Route>
-                    </Switch>
+                    <AuthorizedRoutes />
                 </Suspense>
             </Layout>
         </Router>

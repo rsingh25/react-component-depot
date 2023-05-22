@@ -45,6 +45,7 @@ const Login = React.lazy(() => import("everest/login"));
 const routes = [
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/map",
     component: GoogleMaps,
     navbar: "google-map-react",
@@ -61,6 +62,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/button-loader",
     component: ButtonLoadingSpinner,
     navbar: "Loading Spinners",
@@ -68,6 +70,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/otp-box",
     component: OTPBox,
     navbar: "OTP Box",
@@ -75,6 +78,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/contact-list",
     component: ContactList,
     navbar: "Contact List App",
@@ -82,6 +86,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/video-players",
     component: VideoPlayers,
     navbar: "Video Players",
@@ -89,6 +94,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/apps-library/scroll-indicator",
     component: AppsLibrary,
     navbar: "Scroll Indicator",
@@ -96,6 +102,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/signup",
     component: Signup,
     navbar: "Signup Form",
@@ -103,6 +110,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/hooks-demo",
     component: HooksDemo,
     navbar: "Custom Hooks demo",
@@ -110,6 +118,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/data-table",
     component: DataTable,
     navbar: "Data Table",
@@ -117,6 +126,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/file-upload",
     component: FileUpload,
     navbar: "File Upload",
@@ -124,6 +134,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/battery-status",
     component: BatteryStatus,
     navbar: "Battery Status",
@@ -131,6 +142,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/infinite-scrolling",
     component: InfiniteScrolling,
     navbar: "Infinite Scrolling",
@@ -138,6 +150,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/auto-complete",
     component: CountrySearch,
     navbar: "Auto Complete",
@@ -145,6 +158,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/hcaptcha",
     component: Hcaptcha,
     navbar: "HCaptcha",
@@ -152,6 +166,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/recaptcha",
     component: ReCaptcha,
     navbar: "ReCaptcha",
@@ -159,6 +174,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/data-table-large",
     component: DataTable2,
     navbar: "",
@@ -166,6 +182,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/find-my-ip",
     component: GeoLocation,
     navbar: "Find My IP",
@@ -173,6 +190,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/built-with-react",
     component: BuiltWithReact,
     navbar: "",
@@ -180,6 +198,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/search-filter",
     component: SearchFilter,
     navbar: "Search Filter",
@@ -187,6 +206,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/accordion",
     component: AccordionDemo,
     navbar: "Accordion",
@@ -194,6 +214,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/image-zoom",
     component: ImageZoom,
     navbar: "Image Zoom",
@@ -201,6 +222,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/file-downloader",
     component: FileDownloader,
     navbar: "File Downloader",
@@ -208,6 +230,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/tree-structure",
     component: TreeList,
     navbar: "Tree List",
@@ -215,6 +238,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/team-selection",
     component: TeamSelection,
     navbar: "Tree Selection (DND)",
@@ -222,6 +246,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/leaflet",
     component: Leaflet,
     navbar: "React Leaflet",
@@ -258,6 +283,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/rating",
     component: Rating,
     navbar: "Rating",
@@ -265,6 +291,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/simple-tabs",
     component: SimpleTabs,
     navbar: "Simple Tabs",
@@ -272,6 +299,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/search-debounced",
     component: SearchFilterDebounced,
     navbar: "Debounced Search",
@@ -279,6 +307,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/cancelable-fetch-request",
     component: CancelableFetchRequest,
     navbar: "Cancelable Fetch Request",
@@ -286,6 +315,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/user-list-table",
     component: UserListTable,
     navbar: "User List Table",
@@ -293,6 +323,7 @@ const routes = [
   },
   {
     enabled: false,
+    authority: 'ROLE_USER',
     path: "/react-basics",
     component: ReactBasics,
     navbar: "React Basic",
@@ -305,6 +336,7 @@ const routes = [
   },
   {
     enabled: true,
+    authority: 'ROLE_USER1',
     path: "/employee",
     component: EmployeeDataTable,
     navbar: "Employee",
@@ -312,6 +344,7 @@ const routes = [
   },
   {
     enabled: true,
+    authority: 'ROLE_USER',
     path: "/biometric-upload",
     component: BiometricFileUpload,
     navbar: "Upload Biometric Data",
@@ -319,6 +352,7 @@ const routes = [
   },
   {
     enabled: true,
+    authority: 'ROLE_USER',
     path: "/self",
     component: ReactBasics,
     navbar: "My Data",
@@ -331,6 +365,7 @@ const routes = [
   },
   {
     enabled: true,
+    authority: 'ROLE_USER',
     path: "/hr",
     component: ReactBasics,
     navbar: "Human Resource",
@@ -347,6 +382,7 @@ const routes = [
   },
   {
     enabled: true,
+    authority: 'ROLE_USER',
     path: "/finance",
     component: ReactBasics,
     navbar: "Finance",
@@ -365,15 +401,6 @@ const routes = [
       },
     ],
   },
-  {
-    enabled: true,
-    path: "/login",
-    component: Login,
-    navbar: "Login",
-    child: null,
-  },
-
-
 ];
 
 export default routes.filter((route) => route.enabled);

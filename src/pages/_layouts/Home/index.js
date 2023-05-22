@@ -9,10 +9,16 @@ import { withRouter } from "react-router-dom";
 import AppConfig from "App.config";
 import { useState } from "react";
 import Login from "everest/login";
+import { useDispatch } from "react-redux";
+import { logoutAxn, getAcctAxn } from "../../../everest/redux/auth";
+import { baseServer } from "../../../everest/axios-config";
+
+
 
 ReactGA.initialize(AppConfig.GOOGLE.GA_TRACKING_CODE);
 
 const Home = ({ children }) => {
+    const dispatch = useDispatch();
     const isNavbarVisible = useSelector((state) => state.layout.navbar);
 
     useEffect(() => {
@@ -31,11 +37,38 @@ const Home = ({ children }) => {
         setUserDropDown(!userDropDownCollapsed);
     }
 
-    const auth = useSelector(state => state.auth);
+    const [user, setUser] = useState({login: "", firstName: "", lastName: "", authorities: []});
+    const isAuthenticated = useSelector( state => state.auth.isAuthenticated)
 
-    return !auth ? (
-        <Login />
-    ) : (
+    useEffect(() => {
+        //try autologin if jwt there
+        const getAcctAync = async () => {
+            try {
+                const acct = await baseServer.get("/api/account");
+                dispatch(getAcctAxn(acct.data));
+                setUser(acct.data);
+            } catch (err) {
+                sessionStorage.removeItem("jwt");
+                console.log(err);
+            }
+        };
+
+        if (sessionStorage.getItem("jwt") && !user.login) {
+            getAcctAync()
+        }
+    }, [isAuthenticated]);
+
+    const logout = () => {
+        sessionStorage.removeItem("jwt")
+        dispatch(logoutAxn());
+        setUser({login: "", firstName: "", lastName: "", authorities: []});
+    }
+
+    if (!user.login) {
+        return <Login />
+    }
+
+    return  (
         <>
             <div className={sidebarVisible ? "sb-nav-fixed" : "sb-nav-fixed sb-sidenav-toggled"}>
                 <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -55,10 +88,9 @@ const Home = ({ children }) => {
                         <li className="nav-item dropdown">
                             <a className={"nav-link dropdown-toggle" + (userDropDownCollapsed ? "" : " show")} id="navbarDropdown" onClick={changeUserDropDown} role="button" data-bs-toggle="dropdown" aria-expanded={!userDropDownCollapsed}><i className="fas fa-user fa-fw"></i></a>
                             <ul className={"dropdown-menu dropdown-menu-end" + (userDropDownCollapsed ? "" : " show")} aria-labelledby="navbarDropdown" data-bs-popper={userDropDownCollapsed ? "" : "static"}>
-                                <li><a className="dropdown-item" href="#!">Login</a></li>
-                                <li><a className="dropdown-item" href="#!">Activity Log</a></li>
+                                <li><a className="dropdown-item">Activity Log</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#!">Logout</a></li>
+                                <li><a className="dropdown-item" onClick={logout}>Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -77,6 +109,7 @@ const Home = ({ children }) => {
 
                                     {routes
                                         .filter((route) => route.navbar !== "")
+                                        .filter((route) => user.authorities.includes(route.authority))
                                         .map((route, index) => {
                                             //If has child, render sub list
                                             return (
