@@ -38,7 +38,9 @@ const CancelableFetchRequest = React.lazy(() =>
 );
 const UserListTable = React.lazy(() => import("pages/UserListTable"));
 const EmployeeDataTable = React.lazy(() => import("everest/employee-data-table"));
-const BiometricFileUpload = React.lazy(() => import("everest/biometric-file-upload"));
+const BaseDataTable = React.lazy(() => import("everest/base-data-table"));
+const BiometricFileUpload = React.lazy(() => import("everest/attedance/biometric-file-upload"));
+const Attendance = React.lazy(() => import("everest/attedance"));
 const Login = React.lazy(() => import("everest/login"));
 
 
@@ -336,7 +338,7 @@ const routes = [
   },
   {
     enabled: true,
-    authority: 'ROLE_USER1',
+    authority: 'ROLE_USER',
     path: "/employee",
     component: EmployeeDataTable,
     navbar: "Employee",
@@ -345,10 +347,28 @@ const routes = [
   {
     enabled: true,
     authority: 'ROLE_USER',
-    path: "/biometric-upload",
-    component: BiometricFileUpload,
-    navbar: "Upload Biometric Data",
+    path: "/bsaedt",
+    component: BaseDataTable,
+    navbar: "BaseDataTable",
     child: null
+  },
+  {
+    enabled: true,
+    authority: 'ROLE_USER',
+    path: "/attendance",
+    component: Attendance,
+    navbar: "Attendance",
+    child: [
+      {
+        name: "Upload Biometric",
+        path: "/attendance/upload-biometric",
+      },
+      {
+        name: "Attendance List",
+        path: "/attendance/list",
+      },
+
+    ],
   },
   {
     enabled: true,
