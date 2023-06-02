@@ -38,7 +38,7 @@ const CancelableFetchRequest = React.lazy(() =>
 );
 const UserListTable = React.lazy(() => import("pages/UserListTable"));
 const EmployeeDataTable = React.lazy(() => import("everest/employee-data-table"));
-const BaseDataTable = React.lazy(() => import("everest/base-data-table"));
+const AppConfigTable = React.lazy(() => import("everest/app-config-table"));
 const BiometricFileUpload = React.lazy(() => import("everest/attedance/biometric-file-upload"));
 const Attendance = React.lazy(() => import("everest/attedance"));
 const Login = React.lazy(() => import("everest/login"));
@@ -346,10 +346,10 @@ const routes = [
   },
   {
     enabled: true,
-    authority: 'ROLE_USER',
-    path: "/bsaedt",
-    component: BaseDataTable,
-    navbar: "BaseDataTable",
+    authority: 'ROLE_ADMIN',
+    path: "/app-config",
+    component: AppConfigTable,
+    navbar: "App Config",
     child: null
   },
   {
@@ -367,7 +367,18 @@ const routes = [
         name: "Attendance List",
         path: "/attendance/list",
       },
-
+      {
+        name: "Salary Adjustements",
+        path: "/attendance/salary-adj-list",
+      },
+      {
+        name: "Holidays",
+        path: "/attendance/holiday-list",
+      },
+      {
+        name: "Employees",
+        path: "/attendance/emp-list",
+      },
     ],
   },
   {
